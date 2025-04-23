@@ -1,1 +1,1 @@
-python-argumentation=2.0.2
+python-argumentation==2.0.2
