@@ -11,8 +11,8 @@ The generator uses generators from PyArg to generate ASPIC+ argumentation
 theories.
 Properties of the ASPIC+ argumentation theories:
 - Layered structure: rules go from knowledge to "topic" literals. 
-- The highest layer is 3, so the path from argument premise to conclusion 
-  can contain at most 3 defeasible rules.
+- The highest layer is 4, so the path from argument premise to conclusion 
+  can contain at most 4 defeasible rules.
 - Contrariness by classical negation: each literal in the language has 
   exactly one contradictory --- its negation.
 - No strict rules, just defeasible rules.
