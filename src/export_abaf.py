@@ -7,15 +7,20 @@ def export_abaf(aba_framework: ABAF, write_path: str):
         atom_to_index[atom] = index
 
     with open(write_path, 'w') as writer:
+        # Header line
         writer.write(f'p aba {str(len(atom_to_index))}\n')
 
-        for index in atom_to_index.values():
-            writer.write(f'a {str(index)}\n')
+        # Assumption lines
+        for atom, index in atom_to_index.items():
+            if atom in aba_framework.assumptions:
+                writer.write(f'a {str(index)}\n')
 
+        # Contrary lines
         for contrary_a, contrary_b in aba_framework.contraries.items():
             writer.write(f'c {str(atom_to_index[contrary_a])} '
                          f'{str(atom_to_index[contrary_b])}\n')
 
+        # Rule lines
         for rule in aba_framework.rules:
             body_elements = [str(atom_to_index[antecedent])
                              for antecedent in rule.body]
